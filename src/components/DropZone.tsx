@@ -12,7 +12,7 @@ export function DropZone({ onFilesDrop }: DropZoneProps) {
     const files = Array.from(e.dataTransfer.files)
       .filter(file => file.type.startsWith('image/') || file.name.toLowerCase().endsWith('jxl'))
       .map(file => ({
-        id: crypto.randomUUID(),
+        id: Math.random().toString(36).substring(2, 15),//|| crypto.randomUUID(),
         file,
         status: 'pending' as const,
         originalSize: file.size,
@@ -28,7 +28,7 @@ export function DropZone({ onFilesDrop }: DropZoneProps) {
     const files = Array.from(e.target.files || [])
       .filter(file => file.type.startsWith('image/') || file.name.toLowerCase().endsWith('jxl'))
       .map(file => ({
-        id: crypto.randomUUID(),
+        id: Math.random().toString(36).substring(2, 15),//|| crypto.randomUUID(),
         file,
         status: 'pending' as const,
         originalSize: file.size,
